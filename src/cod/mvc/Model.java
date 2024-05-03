@@ -6,9 +6,8 @@ public class Model {
 
     ArrayList<Coche> parking= new ArrayList<>();
 
-    public void crearCoche(String matricula, String modelo){
+    public void crearCoche(String Coche, String matricula, String modelo){
 
     }
-
 
 }
