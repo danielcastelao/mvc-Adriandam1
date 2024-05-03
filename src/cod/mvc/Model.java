@@ -10,4 +10,8 @@ public class Model {
 
     }
 
+    public void getCoche (String Coche){
+
+    }
+
 }
