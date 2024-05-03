@@ -14,4 +14,11 @@ public class Model {
 
     }
 
+    public void cambiarVelocidad (String Coche, int velocidad){
+
+    }
+
+
+
+
 }
