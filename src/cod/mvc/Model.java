@@ -18,6 +18,10 @@ public class Model {
 
     }
 
+    public void getVelocidad (String velocidad){
+
+    }
+
 
 
 
