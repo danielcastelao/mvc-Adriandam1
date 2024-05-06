@@ -6,7 +6,10 @@ public class Model {
 
     public static ArrayList<Coche> parking = new ArrayList<>();
 
-    public void crearCoche(String Coche, String matricula, String modelo){
+    public Coche crearCoche(int velocidad, String matricula, String modelo){
+        Coche nuevoCoche = new Coche(velocidad, matricula, modelo);
+        parking.add(nuevoCoche);
+        return nuevoCoche;
 
     }
 
