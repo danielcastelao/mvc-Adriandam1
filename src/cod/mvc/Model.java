@@ -20,8 +20,10 @@ public class Model {
         return null;
     }
 
-    public void cambiarVelocidad (String matricula, int velocidad){
-
+    public int cambiarVelocidad (String matricula, int velocidad){
+        Coche coche = getCoche(matricula);
+        coche.velocidad = velocidad;
+        return velocidad;
     }
 
     public void getVelocidad (String matricula){
