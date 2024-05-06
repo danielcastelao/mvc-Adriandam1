@@ -20,11 +20,11 @@ public class Model {
         return null;
     }
 
-    public void cambiarVelocidad (String Coche, int velocidad){
+    public void cambiarVelocidad (String matricula, int velocidad){
 
     }
 
-    public void getVelocidad (String velocidad){
+    public void getVelocidad (String matricula){
 
     }
 
