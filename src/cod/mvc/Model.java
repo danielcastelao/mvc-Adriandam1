@@ -10,11 +10,14 @@ public class Model {
         Coche nuevoCoche = new Coche(velocidad, matricula, modelo);
         parking.add(nuevoCoche);
         return nuevoCoche;
-
     }
-
-    public void getCoche (String Coche){
-
+    public Coche getCoche (String matricula){
+        for (Coche coche : parking) {
+            if (coche.matricula.equals(matricula)) {
+                return coche;
+            }
+        }
+        return null;
     }
 
     public void cambiarVelocidad (String Coche, int velocidad){
