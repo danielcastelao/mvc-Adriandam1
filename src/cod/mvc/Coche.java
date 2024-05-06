@@ -1,9 +1,9 @@
 package cod.mvc;
 
 public class Coche {
-    private int velocidad;
-    private String matricula;
-    private String modelo;
+    public int velocidad;
+    public String matricula;
+    public String modelo;
 
     public Coche(int velocidad, String matricula, String modelo) {
         this.velocidad = velocidad;
