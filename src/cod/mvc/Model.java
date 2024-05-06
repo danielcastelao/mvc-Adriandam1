@@ -26,8 +26,9 @@ public class Model {
         return velocidad;
     }
 
-    public void getVelocidad (String matricula){
-
+    public int getVelocidad (String matricula){
+        Coche coche = getCoche(matricula);
+        return coche.velocidad;
     }
 
 
