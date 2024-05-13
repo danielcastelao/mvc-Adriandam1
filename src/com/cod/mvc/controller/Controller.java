@@ -12,11 +12,11 @@ public class Controller{
         miModelo = new Model();
 
         // instanciamos al observador
-        com.cod.mvc.controller.ObserverVelocidad observoVelocidad = new com.cod.mvc.controller.ObserverVelocidad();
+        ObserverVelocidad observoVelocidad = new ObserverVelocidad();
         miModelo.addObserver(observoVelocidad);
 
         // instanciamos un segundo observador
-        com.cod.mvc.controller.ObserverOtro otroObservador = new com.cod.mvc.controller.ObserverOtro();
+        ObserverOtro otroObservador = new ObserverOtro();
         miModelo.addObserver(otroObservador);
 
         // Crear tres coches
