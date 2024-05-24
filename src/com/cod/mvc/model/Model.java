@@ -6,9 +6,11 @@ import java.util.ArrayList;
 
 
 /**
- * Vamos a usar la interface Observable en el com.cod.mvc.model.Model
+ * Vamos a usar la interface Observable
+ * El Model será el encargado de notificar a los observadores
  */
 public class Model implements Observable {
+    // array de coches
     static ArrayList<Coche> parking = new ArrayList<>();
 
     // para los observadores
@@ -23,12 +25,15 @@ public class Model implements Observable {
         observers.remove(observer);
     }
 
+    /**
+     * Notifica a los observadores
+     * Se ejecutara el método update() de cada observador
+     * @param coche
+     */
     @Override
-    public void notifyObservers(Coche coche) {
-        // para notificar a los observadores recorro el array con el metodo update
-        // todos los observadores tienen metodo update
+    public void notifyObservers(Coche coche, Model model) {
         for (Observer observer : observers) {
-            observer.update(coche);
+            observer.update(coche, model);
         }
     }
 
@@ -73,19 +78,20 @@ public class Model implements Observable {
         getCoche(matricula).velocidad = v;
 
         // lo notificamos a todos los observadores
-        notifyObservers(getCoche(matricula));
+        notifyObservers(getCoche(matricula),this );
 
         // ya no retornamos la nueva velocidad
         // porque vamos a utilizar el patron observer
-        // return getCoche(matricula).velocidad;
+        //return getCoche(matricula).velocidad;
     }
 
     /**
-     * Ddevuelve la velocidad segun la matricula
+     * Devuelve la velocidad según la matrícula
      * @param matricula identificador del coche
      * @return velocidad del coche actual
      */
-    public static Integer getVelocidad(String matricula) {
+    public Integer getVelocidad(String matricula) {
+
         return getCoche(matricula).velocidad;
     }
 }
