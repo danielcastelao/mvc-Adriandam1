@@ -1,5 +1,6 @@
 package com.cod.mvc.model;
 
+
 public class Coche {
     public String matricula;
     public String modelo;
@@ -34,4 +35,5 @@ public class Coche {
     public void setVelocidad(Integer velocidad) {
         this.velocidad = velocidad;
     }
+
 }
