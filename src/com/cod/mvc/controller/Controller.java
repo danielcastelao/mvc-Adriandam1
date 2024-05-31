@@ -4,8 +4,8 @@ import com.cod.mvc.model.Model;
 
 public class Controller{
 
-    // definimos la instancia del modelo
-    private final Model miModel;
+    // Instancia del modelo
+    Model model = Model.getInstancia();
 
     /**
      * Constructor. Inicializamos el controller
@@ -13,7 +13,6 @@ public class Controller{
      * @param miModel
      */
     public Controller(Model miModel){
-        this.miModel = miModel;
 
         // instanciamos al observador de la velocidad
         ObserverVelocidad observoVelocidad = new ObserverVelocidad();
@@ -22,8 +21,6 @@ public class Controller{
         // instanciamos un segundo observador para el limite de velocidad
         ObserverLimite observoLimite = new ObserverLimite();
         miModel.addObserver(observoLimite);
-
-
     }
 
     /**
@@ -32,7 +29,7 @@ public class Controller{
      * @param matricula del coche
      */
     public void crearCoche(String nombre, String matricula){
-        miModel.crearCoche(nombre, matricula);
+        model.crearCoche(nombre, matricula);
     }
 
     /**
@@ -41,7 +38,7 @@ public class Controller{
      * @param velocidad nueva
      */
     public void cambiarVelocidad(String matricula, Integer velocidad){
-        miModel.cambiarVelocidad(matricula, velocidad);
+        model.cambiarVelocidad(matricula, velocidad);
     }
 
 

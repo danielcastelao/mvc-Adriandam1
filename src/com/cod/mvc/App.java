@@ -11,7 +11,7 @@ public class App {
     public static void main(String[] args) {
         // Inicializamos la app
         // instanciamos el modelo
-        Model miModel = new Model();
+        Model miModel = Model.getInstancia();
         // instanciamos el controlador
         // le pasamos el Model instanciado
         Controller miController = new Controller(miModel);
