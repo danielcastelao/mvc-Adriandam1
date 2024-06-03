@@ -42,11 +42,9 @@ public class Controller{
      * @param matricula la matrícula del coche
      * @param v la cantidad a aumentar en la velocidad
      */
+
     public void subirVelocidad(String matricula, Integer v){
-        Coche coche = miModel.getCoche(matricula);
-        if (coche != null) {
-            miModel.cambiarVelocidad(matricula, coche.getVelocidad() + v);
-        }
+        miModel.subirVelocidad(matricula, v);
     }
 
     /**
@@ -54,10 +52,8 @@ public class Controller{
      * @param matricula la matrícula del coche
      * @param v la cantidad a disminuir en la velocidad
      */
-    public void bajarVelocidad(String matricula, Integer v){
-        Coche coche = miModel.getCoche(matricula);
-        if (coche != null) {
-            miModel.cambiarVelocidad(matricula, coche.getVelocidad() - v);
-        }
+
+    public void bajarVelocidad(String matricula, Integer v) {
+        miModel.bajarVelocidad(matricula, v);
     }
 }
