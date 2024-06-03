@@ -119,4 +119,6 @@ public class Model implements Observable {
         Coche coche = getCoche(matricula);
         return coche != null ? coche.getVelocidad() : null;
     }
+
+
 }

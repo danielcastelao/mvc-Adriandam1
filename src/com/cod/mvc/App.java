@@ -17,16 +17,23 @@ public class App {
         Controller miController = new Controller(miModel);
 
         // Crear tres coches
-        miController.crearCoche("LaFerrari", "SBC 1234");
-        miController.crearCoche("Alpine", "HYU 4567");
-        miController.crearCoche("Aston Martin", "FGH 3333");
+        miController.crearCoche("LaFerrari", "SBC 1234",100);
+        miController.crearCoche("Alpine", "HYU 4567",200);
+        miController.crearCoche("Aston Martin", "FGH 3333",100);
+        miController.crearCoche("Mercedes", "masbajo",120);
 
         // Cambiar la velocidad de un coche
-        miController.cambiarVelocidad("SBC 1234", 30);
+        miController.subirVelocidad("SBC 1234", 30);
 
         // otro cambio de velocidad
         // sobrepasando la velocidad máxima
-        miController.cambiarVelocidad("HYU 4567", 150);
+        miController.bajarVelocidad("HYU 4567", 10);
+
+        //subida de vvelocidad a astonmartin confirma metodos funcionan
+        miController.subirVelocidad("FGH 3333", 20);
+
+        //Bajada de velocidad mercesdes confirma baja velocidad
+        miController.bajarVelocidad("masbajo", 10);
 
     }
 }

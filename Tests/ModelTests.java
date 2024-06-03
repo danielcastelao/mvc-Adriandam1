@@ -1,34 +1,94 @@
-
+import com.cod.mvc.controller.Controller;
 import com.cod.mvc.model.Coche;
 import com.cod.mvc.model.Model;
-import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assertions;
 
 public class ModelTests {
-    //Hay que reacer los test tras el cambio de los metodos
-/*
-    @Test
-    public void pruebaCrearCoche() {
-        Coche coche = Model.crearCoche(Audi,"Audi");
-        Assertions.assertEquals(0,coche.velocidad);
-        Assertions.assertEquals("456A",coche.matricula);
-        Assertions.assertEquals("Audi",coche.modelo);
-    }
-    @Test
-    public void pruebaGetCoche(){
-        Coche coche = Model.crearCoche(Ferrari,"5454F");
-        Assertions.assertSame(coche,Model.getCoche("5454F"));
-    }
-    @Test
-    public void pruebaCambiarVelocidad(){
-        Coche coche = Model.crearCoche(Citroen,"6767C);
-        Assertions.assertEquals(24,Model.cambiarVelocidad("6767C",24));
-    }
-    @Test
-    public void pruebagetVelocidad(){
-        Coche coche = Model.crearCoche(Seat,"123asd");
-        Assertions.assertEquals(45,Model.getVelocidad("123asd"));
+    private Controller controller;
+    private Model model;
 
+    @BeforeEach
+    public void setup() {
+        model = new Model();
+    }
 
-    }*/
+    @Test
+    public void crearCocheReturnTrue() {
+        Assertions.assertNotNull(model.crearCoche("modelo", "matricula", 0));
+    }
+
+    @Test
+    public void cambiarVelocidadComprobarCambioReturnTrue() {
+        Coche coche = model.crearCoche("modelo", "matricula", 0);
+        Integer velocidad = 40;
+        model.cambiarVelocidad("matricula", velocidad);
+        Assertions.assertEquals(velocidad, coche.getVelocidad());
+    }
+
+    @Test
+    public void comprobarAddCocheIntoParkingReturnTrue() {
+        Coche coche = model.crearCoche("modelo", "matricula", 0);
+        Assertions.assertEquals(model.getCoche(coche.getMatricula()), coche);
+    }
+
+    @Test
+    public void testGetDatosCoche() {
+        Coche coche = model.crearCoche("modelo", "matricula", 0);
+        Assertions.assertEquals(coche, model.getCoche("matricula"));
+        Assertions.assertNull(model.getCoche("mimatricula"));
+    }
+
+    @Test
+    public void testCambiarVelocidadYObtenerVelocidad() {
+        String matricula = "ALpine";
+        String modelo = "Ocon";
+        Integer velocidadInicial = 0;
+        Coche coche = model.crearCoche(modelo, matricula, velocidadInicial);
+
+        Integer velocidad = model.getVelocidad(matricula);
+        Assertions.assertEquals(velocidadInicial, velocidad);
+
+        Integer nuevaVelocidad = 40;
+        model.cambiarVelocidad(matricula, nuevaVelocidad);
+
+        velocidad = model.getVelocidad(matricula);
+        Assertions.assertEquals(nuevaVelocidad, velocidad);
+    }
+
+    @Test
+    public void testSubirVelocidad() {
+        String matricula = "cochesubevelocidad";
+        String modelo = "Alonso";
+        Integer velocidadInicial = 150;
+        Coche coche = model.crearCoche(modelo, matricula, velocidadInicial);
+
+        Integer velocidad = model.getVelocidad(matricula);
+        Assertions.assertEquals(velocidadInicial, velocidad);
+
+        Integer incremento = 10;
+        model.subirVelocidad(matricula, incremento);
+
+        int nuevaVelocidad = model.getVelocidad(matricula);
+        Assertions.assertEquals(velocidadInicial + incremento, nuevaVelocidad);
+    }
+
+    @Test
+    public void testBajarVelocidad() {
+        String matricula = "Cochequebajavelocidad";
+        String modelo = "Ferrari";
+        Integer velocidadInicial = 150;
+        Coche coche = model.crearCoche(modelo, matricula, velocidadInicial);
+
+        Integer velocidad = model.getVelocidad(matricula);
+        Assertions.assertEquals(velocidadInicial, velocidad);
+
+        Integer decremento = 10;
+        model.bajarVelocidad(matricula, decremento);
+
+        int nuevaVelocidad = model.getVelocidad(matricula);
+        Assertions.assertEquals(velocidadInicial - decremento, nuevaVelocidad);
+    }
+
 }

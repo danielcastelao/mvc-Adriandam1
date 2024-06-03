@@ -17,27 +17,7 @@ Utiliza objetos coches, modifica la velocidad y la muestra
 ### Diagrama de clases:
 
 ```mermaid
-classDiagram
-    class com.cod.mvc.model.Coche {
-        String: matricula
-        String: modelo
-        Integer: velocidad
-    }
-      class com.cod.mvc.controller.Controller{
-          +main()
-      }
-      class com.cod.mvc.view.View {+muestraVelocidad(String, Integer)}
-      class com.cod.mvc.model.Model {
-          ArrayList~com.cod.mvc.model.Coche~: parking
-          +crearCoche(String, String, String)
-          +getCoche(String)
-          +cambiarVelocidad(String, Integer)
-          +getVelocidad(String)
-      }
-    com.cod.mvc.controller.Controller "1" *-- "1" com.cod.mvc.model.Model : association
-    com.cod.mvc.controller.Controller "1" *-- "1" com.cod.mvc.view.View : association
-    com.cod.mvc.model.Model "1" *-- "1..n" com.cod.mvc.model.Coche : association
-      
+
 ```
 
 ---
