@@ -5,6 +5,9 @@ import com.cod.mvc.model.Coche;
 
 /**
  * Interfaz Observable
+ * Contiene addObserver para añadir observer
+ * Contiene removeObserver para quiatr observer
+ * Contiene notifyObserver para notificar los observers
  */
 public interface Observable {
     // añade un observador
